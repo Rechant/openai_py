@@ -44,6 +44,8 @@ for i in range(num_episodes):
 
 		# Update Q-Table with new knowledge
 		Q[s,a] = Q[s,a] + lr*(r+y*np.max(Q[s1,:]) - Q[s,a])
+		# Maximum for Q[s,a] is y^(n-1), where n is the steps from the final goal
+
 		rAll += r
 		s = s1
 		if d == True:
